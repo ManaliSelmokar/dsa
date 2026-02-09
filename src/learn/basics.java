@@ -42,7 +42,7 @@ public class basics {
             default:
                 System.out.println("Invalid choice. Please select a number between 1 and 4.");
         }
-
+        sc.close();
     }
 
     static void areaOfCircle(){
@@ -52,6 +52,7 @@ public class basics {
         double radius = sc.nextDouble();
         double area = Math.PI * radius * radius;
         System.out.println("The area of the circle is: "+area);
+        sc.close();
     }
 
     static void tableOfNumber(){
@@ -62,6 +63,7 @@ public class basics {
         for(int i=1;i<=10;i++){
             System.out.println(num+" * "+i+" = "+(num*i));
         }
+        sc.close();
     }
 
     static void calculator(){
@@ -97,6 +99,7 @@ public class basics {
             default:
                 System.out.println("Invalid operator");
         }
+        sc.close();
     }
 
     static void printMonth(){
@@ -144,6 +147,7 @@ public class basics {
             default:
                 System.out.println("Invalid month number.");
         }
+        sc.close();
     }
 
     static void printEvenNumbers(){
@@ -155,6 +159,7 @@ public class basics {
             if(i%2==0)System.out.print(i+", ");
         }
         System.out.println();
+        sc.close();
     }
 
     static void studentMarks(){
@@ -172,6 +177,7 @@ public class basics {
             n = sc.nextInt();
         }
         while(n==1);
+        sc.close();
     }
 
     static void primeNumber(){
@@ -191,6 +197,7 @@ public class basics {
         if(isPrime) System.out.println(num+" is a prime number.");
         else System.out.println(num+" is not a prime number.");
         factorsOfNumber(num);
+        sc.close();
     }
 
     static void factorsOfNumber(int num){
