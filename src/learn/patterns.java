@@ -44,8 +44,10 @@ public class patterns {
                 break;
         
             default:
-                System.out.println("Invalid choice. Please select a number between 1 and 3.");
+                System.out.println("Invalid choice. Please select a number between 1 and 8.");
+
         }
+        sc.close();
     }
 
     static void solidRhombus(){
@@ -62,6 +64,7 @@ public class patterns {
             }
             System.out.println();
         }
+        sc.close();
     }
 
     static void numberPyramid(){
@@ -79,6 +82,7 @@ public class patterns {
             }
             System.out.println();
         }
+        sc.close();
     }
 
     static void palindromicNumberPyramid(){
@@ -98,6 +102,7 @@ public class patterns {
             }
             System.out.println();
         }
+        sc.close();
     }
 
     static void hollowButterflyPattern(){
@@ -131,9 +136,9 @@ public class patterns {
                     System.out.print("\t");
                 }
             }
-            System.out.println();
-            
+            System.out.println();  
         }
+        sc.close();
     }
 
     static void hollowRhombusPattern(){
@@ -164,6 +169,7 @@ public class patterns {
             }
             System.out.println();
         }
+        sc.close();
     }
 
     static void pascalTrianglePattern(){
@@ -180,7 +186,10 @@ public class patterns {
         System.out.println("Print a pascal's triangle pattern:");   
         System.out.print("Enter the number of rows for the pascal's triangle:\t");
         int rows = sc.nextInt();
+        int[] arr = new int[rows];
 
+        //Approach 1: Using binomial coefficient formula
+        /*
         for(int i=1;i<=rows;i++){
             for(int j=1;j<=rows-i;j++){
                 System.out.print(" \t");
@@ -190,30 +199,76 @@ public class patterns {
                 System.out.print(num+"");
                 System.out.print("("+i+","+j+")\t");
                 num = num * (i-j) / j;
-                //logic explained:
-                num = num * (i-j) / j;
-                //The formula for calculating the value of the current element in the row is based on the properties of Pascal's triangle.
-                //In Pascal's triangle, each element is the sum of the two elements directly above it in the previous row. The formula num = num * (i-j) / j is derived from this property and allows us to calculate the value of the current element based on the previous element in the same row.
-                //The formula works as follows:
-                //1. Start with num = 1 for the first element in each row (when j = 1).
-                //2. For each subsequent element in the row (when j > 1), calculate the value of num using the formula num = num * (i-j) / j. This formula effectively computes the value of the current element based on the previous element in the same row, which is how Pascal's triangle is structured.           
-                //Example: For the 4th row (i=4), the elements are calculated as follows:
-                //- For j=1: print 1 then update num = 1 * (4-1) / 1 = 3 
-                //- For j=2: print 3 then update num = 3 * (4-2) / 2 = 3 
-                //- For j=3: print 3 then update num = 3 * (4-3) / 3 = 1 
-                //- For j=4: print 1 
-                //Thus, the 4th row of Pascal's triangle is 1, 3, 3, 1.
                 System.out.print(num+"\t");
             }
             System.out.println();
+        }*/
+
+        //Approach 2: Using 1D array
+        for(int i=0;i<rows;i++){
+            arr[i] = 1; 
+            for(int j=i-1;j>0;j--){
+                arr[j] = arr[j] + arr[j-1]; 
+            }
+            for(int j=1;j<rows-i;j++){
+                System.out.print(" \t");
+            }
+            for(int j=0;j<=i;j++){
+                System.out.print(arr[j]+"\t\t");
+            }
+            System.out.println();
         }
+        sc.close();
     }
 
     static void halfPyramidPattern(){
         // Implementation for half pyramid pattern
+        /*
+              1
+             1 2
+            1 2 3
+           1 2 3 4
+          1 2 3 4 5
+
+        */
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Print a half pyramid pattern:");
+        System.out.print("Enter the number of rows for the half pyramid:\t");
+        int rows = sc.nextInt();
+        for(int i=1;i<=rows;i++){
+            for(int j=1;j<=rows-i;j++){
+                System.out.print(" \t");
+            }
+            for(int j=1;j<=i;j++){
+                System.out.print(j+"\t\t");
+            }
+            System.out.println();
+        }
+        sc.close();
     }
 
     static void invertedHalfPyramidPattern(){
         // Implementation for inverted half pyramid pattern     
+        /*
+          1 1 1 1 1
+           2 2 2 2
+            3 3 3
+             4 4
+              5
+        */
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Print an inverted half pyramid pattern:");
+        System.out.print("Enter the number of rows for the inverted half pyramid:\t");
+        int rows = sc.nextInt();
+        for(int i=1;i<=rows;i++){
+            for(int j=1;j<=i-1;j++){
+                System.out.print(" \t");
+            }
+            for(int j=1;j<=rows-i+1;j++){
+                System.out.print(i+"\t\t");
+            }
+            System.out.println();
+        }
+        sc.close();
     }
 }
