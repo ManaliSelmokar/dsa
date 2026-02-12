@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class arrays {
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Please select an option \n1. Min Max number in an array \n2. Sort an array \n3. Spiral Order matrix");
+        System.out.println("Please select an option \n1. Min Max number in an array \n2. Sort an array \n3. Spiral Order matrix \n4. Transpose");
         int choice = sc.nextInt();
         switch(choice){
             case 1:
@@ -18,6 +18,10 @@ public class arrays {
 
             case 3:
                 spiralOrderMatrix();
+                break;
+
+            case 4:
+                transpose();
                 break;
 
             default:
@@ -83,11 +87,12 @@ public class arrays {
 
     static void spiralOrderMatrix(){
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter lengths");
         int n = sc.nextInt();
         int m = sc.nextInt();
 
-
         int matrix[][] = new int[n][m];
+        System.out.println("Enter numbers");
         for(int i=0; i<n; i++) {
             for(int j=0; j<m; j++) {
                 matrix[i][j] = sc.nextInt();
@@ -135,5 +140,27 @@ public class arrays {
             System.out.println();
         }
    
+    }
+
+    static void transpose(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter lengths");
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int[][] mat = new int[n][m];
+        System.out.println("Enter numbers");
+        for(int i=0; i<n; i++) {
+            for(int j=0; j<m; j++) {
+                mat[i][j] = sc.nextInt();
+            }
+        }
+
+        System.out.println("Transpose:");
+        for(int i=0; i<m; i++) {
+            for(int j=0; j<n; j++) {
+                System.out.print(mat[j][i]+" ");
+            }
+            System.out.println();
+        }
     }
 }
