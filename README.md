@@ -1,28 +1,47 @@
-# DSA (Data Structures & Algorithms)
+# 404 – Not Found
 
-## Description
-A collection of Data Structures and Algorithms implementations and solutions.
+This project appears to be a simple static website.
 
-## Topics Covered
-- Arrays & Strings
-- Linked Lists
-- Stacks & Queues
-- Trees & Graphs
-- Sorting & Searching
-- Dynamic Programming
-- etc.
+It contains:
+- A basic landing page
+- A password gate
+- Some styling
+- A few media assets
 
-## Project Structure
-dsa/
-├── arrays/
-├── linked-lists/
-├── trees/
-├── graphs/
-└── sorting/
+Nothing unusual.
 
-## Technologies
-- Language: [JavaScript/Python/Java/etc.]
-- Tools: [VS Code/IDE]
+Unless you know the code.
 
-## Usage
-Each folder contains implementations with examples.
+---
+
+## ⚠️ Access Required
+
+If you’ve been given the link,  
+you probably already know why.
+
+If you don’t —  
+this page truly does not exist.
+
+---
+
+## 🖤 Built With
+
+- HTML
+- CSS
+- JavaScript
+- Suspense
+- A little bit of chaos
+- A lot of love
+
+---
+
+## 🚀 Deployment
+
+Hosted via GitHub Pages.
+
+---
+
+If you’re reading this…
+You were always meant to find it.
+
+You were always meant to find it.
