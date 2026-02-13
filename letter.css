@@ -97,14 +97,14 @@ body {
 .letter-btn {
     margin-top: 30px;
     padding: 10px 20px;
-    background: red;
+    background: #f7cdd5;
     border: none;
     color: white;
     cursor: pointer;
 }
 
 .letter-btn:hover {
-    background: darkred;
+    background: #f7cdd5;
 }
 
 .letter-text {
