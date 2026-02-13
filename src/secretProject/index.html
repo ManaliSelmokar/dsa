@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>404 Not Found</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="error-page">
+
+<div class="error-container">
+    <h1 class="glow">404</h1>
+    <p>This page does not exist.</p>
+    <p>Unless you know the code.</p>
+
+    <input type="password" id="password" placeholder="Access Code">
+    <button onclick="checkPassword()">Unlock</button>
+    <p id="message"></p>
+</div>
+
+<div id="overlay" class="hidden">
+    <div class="confirm-box">
+        <p>Are you sure you want to continue?</p>
+        <button onclick="proceed()">Yes</button>
+        <button onclick="cancel()">No</button>
+    </div>
+</div>
+
+<audio id="heartbeat">
+    <source src="heartbeat.m4a" type="audio/mpeg">
+</audio>
+
+<script>
+function checkPassword() {
+    const password = document.getElementById("password").value;
+
+    if (password === "meow") {
+        document.getElementById("heartbeat").play();
+        document.getElementById("overlay").classList.remove("hidden");
+    } else {
+        document.getElementById("message").innerText =
+        "Wrong password. Try again, Romeo 😌";
+    }
+}
+
+function proceed() {
+    document.body.classList.add("fade-out");
+    setTimeout(() => {
+        window.location.href = "secret.html";
+    }, 2000);
+}
+
+function cancel() {
+    document.getElementById("overlay").classList.add("hidden");
+}
+</script>
+
+</body>
+</html>
