@@ -67,16 +67,22 @@
 document.getElementById("envelope").addEventListener("click", function() {
 
     document.getElementById("flap").classList.add("open-flap");
+    document.querySelector(".envelope").classList.add("shadow");
 
+    // slight peek
+    setTimeout(() => {
+        document.getElementById("letterContainer").style.opacity = "1";
+        document.getElementById("letterContainer").style.transform = "translateY(20px) scale(0.98)";
+    }, 400);
+
+    // full reveal
     setTimeout(() => {
         document.getElementById("envelope").classList.add("hide");
-    }, 800);
-
-    setTimeout(() => {
         document.getElementById("letterContainer").classList.add("show");
-    }, 1000);
+    }, 900);
 
 });
+
 </script>
 
 
