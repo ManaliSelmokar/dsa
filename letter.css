@@ -168,3 +168,22 @@ body {
     font-size: 12px;
     color: #b03a48;
 }
+
+/* Floating dust */
+.dust {
+    position: fixed;
+    top: -10px;
+    width: 4px;
+    height: 4px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    animation: floatDown linear infinite;
+}
+
+@keyframes floatDown {
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+
