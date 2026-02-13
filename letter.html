@@ -11,10 +11,10 @@
 <body>
 
 <!-- Envelope -->
-<div class="envelope-wrapper" onclick="openLetter()">
+<div class="envelope-wrapper" id="envelope">
     <div class="envelope">
         <div class="flap"></div>
-        <div class="body"></div>
+        <div class="seal">❤️</div>
     </div>
     <p class="open-text">Click to open ❤️</p>
 </div>
@@ -22,6 +22,8 @@
 <!-- Letter -->
 <div class="letter-container" id="letterContainer">
     <div class="letter">
+        <div class="from">From: M ❤️</div>
+
         <h2>For You ❤️</h2>
 
         <p>
@@ -57,22 +59,17 @@
         and very, very loved.
         </p>
 
-        <p><strong>Happy Valentine’s Day ❤️</strong></p>
-
-        <div class="signature">From: M ❤️</div>
+        <p class="final"><strong>Happy Valentine’s Day ❤️</strong></p>
     </div>
 </div>
 
-<!-- Heartbeat Audio -->
-<audio id="heartbeat" src="heartbeat.mp3" preload="auto"></audio>
-
 <script>
-function openLetter() {
-    document.querySelector('.envelope-wrapper').style.display = "none";
-    document.getElementById('letterContainer').style.display = "flex";
-    document.getElementById('heartbeat').play();
-}
+document.getElementById("envelope").addEventListener("click", function() {
+    document.getElementById("envelope").classList.add("hide");
+    document.getElementById("letterContainer").classList.add("show");
+});
 </script>
 
 </body>
+
 </html>
