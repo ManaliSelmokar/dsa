@@ -38,7 +38,15 @@ body {
     height: 100px;
     background: #f7cdd5;
     clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transform-origin: top;
+    transition: transform 0.8s ease;
 }
+
+/* Flap open animation */
+.open-flap {
+    transform: rotateX(180deg);
+}
+
 
 .seal {
     position: absolute;
@@ -74,16 +82,17 @@ body {
 .letter-container {
     position: absolute;
     opacity: 0;
-    transform: scale(0.8);
+    transform: translateY(40px) scale(0.8);
     transition: all 1s ease;
     pointer-events: none;
 }
 
 .letter-container.show {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0) scale(1);
     pointer-events: auto;
 }
+
 
 .letter {
     width: 650px;
