@@ -2,57 +2,77 @@
 <html>
 <head>
     <title>A Letter For You ❤️</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="letter-page fade-in">
+<body class="letter-page">
 
-<div class="container">
-    <h1>For You</h1>
+<div class="dust-container"></div>
 
-    <p class="letter-text">
-    I just wanted to say how much I appreciate you.
-    <br><br>
-    Not just for the big things.
-    <br>
-    But for the small, quiet things too.
-    <br><br>
-    The way you support me.
-    <br>
-    The way you make me laugh.
-    <br>
-    The way you are there for me.
-    <br><br>
-    You make ordinary days feel special.
-    <br>
-    You make stressful days feel lighter.
-    <br><br>
-    With you, things feel safe.
-    <br>
-    Easy. Real.
-    <br><br>
-    Thank you for being exactly who you are.
-    <br><br>
-    I’m really lucky to have you.
-    <br><br>
-    I hope you always remember —
-    <br>
-    you are deeply appreciated,
-    <br>
-    genuinely admired,
-    <br>
-    and very, very loved.
-    <br><br>
-    Happy Valentine’s Day ❤️
-     </p>
-    <button class="letter-btn" onclick="goBack()">
-        Back to us ❤️
-    </button>
+<div class="letter-wrapper">
+
+    <div class="paper">
+
+        <div class="wax-seal">❤️</div>
+
+        <div class="from-tag">From: M ❤️</div>
+
+        <h1 class="letter-title">For You</h1>
+
+        <div class="letter-text">
+            <p>I just wanted to say how much I appreciate you.</p>
+
+            <p>Not just for the big things,<br>
+            but for the small, quiet ones too.</p>
+
+            <p>The way you support me even when I doubt myself.<br>
+            The way you make me laugh when I least expect it.<br>
+            The way you listen — really listen.</p>
+
+            <p>The way you stay.</p>
+
+            <p>You make ordinary days feel special.<br>
+            You make stressful days feel lighter.</p>
+
+            <p>With you, things feel safe.<br>
+            Easy. Real.</p>
+
+            <p>Thank you for being exactly who you are.</p>
+
+            <p>I’m really lucky to have you.</p>
+
+            <p>I hope you always remember —<br>
+            you are deeply appreciated,<br>
+            genuinely admired,<br>
+            and very, very loved.</p>
+
+            <p class="signature">
+                Happy Valentine’s Day ❤️
+            </p>
+        </div>
+
+        <button class="letter-btn" onclick="goBack()">Back to us ❤️</button>
+
+    </div>
+
 </div>
 
 <script>
 function goBack() {
     window.location.href = "secret.html";
+}
+
+/* Floating dust particles */
+for (let i = 0; i < 30; i++) {
+    let dust = document.createElement("div");
+    dust.classList.add("dust");
+    dust.style.left = Math.random() * 100 + "vw";
+    dust.style.animationDuration = (8 + Math.random() * 10) + "s";
+    document.querySelector(".dust-container").appendChild(dust);
 }
 </script>
 
