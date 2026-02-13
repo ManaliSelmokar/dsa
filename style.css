@@ -117,41 +117,133 @@ body.secret-page {
 }
 
 /* ========================= */
-/* 💌 LETTER PAGE (Soft Elegant Pink) */
+/* 💌 LETTER PAGE */
 /* ========================= */
 
 body.letter-page {
-    background: linear-gradient(180deg, #fff3f5 0%, #ffe6ec 100%);
-    color: #7a1f2b;
+    background: linear-gradient(180deg, #fff5f7 0%, #ffe9ee 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Floating dust */
+.dust {
+    position: fixed;
+    top: -10px;
+    width: 4px;
+    height: 4px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    animation: floatDown linear infinite;
+}
+
+@keyframes floatDown {
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+
+/* Paper unfold animation */
+.letter-wrapper {
+    perspective: 2000px;
+}
+
+.paper {
+    background: #ffffff;
+    width: 750px;
+    padding: 80px 80px;
+    border-radius: 10px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+    position: relative;
+    transform-origin: top;
+    animation: unfold 1.6s ease forwards;
+    transform: rotateX(-90deg);
+}
+
+@keyframes unfold {
+    to {
+        transform: rotateX(0deg);
+    }
+}
+
+/* Wax seal */
+.wax-seal {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #b43a4a;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* From tag */
+.from-tag {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 22px;
+    color: #a14b59;
+}
+
+/* Title */
+.letter-title {
     text-align: center;
-    padding: 80px 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    margin-bottom: 50px;
+    color: #7a1f2b;
 }
 
-body.letter-page h1 {
-    font-size: 36px;
-    font-weight: 500;
-    margin-bottom: 20px;
-}
-
+/* Letter text */
 .letter-text {
-    max-width: 650px;
-    margin: 40px auto;
-    line-height: 1.9;
-    font-size: 18px;
-    opacity: 0.9;
+    font-family: 'Playfair Display', serif;
 }
 
+.letter-text p {
+    font-size: 18px;
+    line-height: 2;
+    margin-bottom: 25px;
+    color: #5a2b33;
+}
+
+.signature {
+    margin-top: 40px;
+    text-align: right;
+    font-family: 'Great Vibes', cursive;
+    font-size: 26px;
+}
+
+/* Button */
 .letter-btn {
-    background: #d14b63;
-    padding: 12px 26px;
+    margin-top: 50px;
+    padding: 12px 28px;
+    background: #c94f66;
+    color: white;
+    border: none;
     border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
 .letter-btn:hover {
-    background: #b93b52;
+    background: #b53f55;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
+
 
 /* ========================= */
 /* ❤️ Falling Hearts */
