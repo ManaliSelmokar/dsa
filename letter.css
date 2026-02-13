@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f9e7ea, #f3d6dc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+}
+
+/* ================= ENVELOPE ================= */
+
+.envelope-wrapper {
+    text-align: center;
+    cursor: pointer;
+    transition: opacity 0.8s ease;
+}
+
+.envelope {
+    position: relative;
+    width: 320px;
+    height: 200px;
+    background: #fce4e8;
+    border-radius: 6px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background: #f7cdd5;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+}
+
+.seal {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #b03a48;
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.open-text {
+    margin-top: 20px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 22px;
+    color: #7a2d3a;
+}
+
+.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ================= LETTER ================= */
+
+.letter-container {
+    position: absolute;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 1s ease;
+}
+
+.letter-container.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.letter {
+    width: 650px;
+    max-width: 90vw;
+    height: 85vh;
+    background: #fffaf7;
+    padding: 50px 60px;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    position: relative;
+    animation: unfold 1s ease forwards;
+}
+
+/* Paper unfold animation */
+@keyframes unfold {
+    from {
+        transform: rotateX(90deg);
+        opacity: 0;
+    }
+    to {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+.letter h2 {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 38px;
+    color: #7a2d3a;
+    margin-bottom: 30px;
+}
+
+.letter p {
+    margin-bottom: 22px;
+    line-height: 1.8;
+    font-size: 18px;
+    color: #5c3a41;
+}
+
+.final {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.from {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+    color: #b03a48;
+}
