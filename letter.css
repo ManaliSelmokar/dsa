@@ -95,11 +95,13 @@ body {
 
 
 .letter {
-    width: 280px;
-    height: 170px;
-    padding: 20px 18px;
-    border-radius: 6px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    width: 650px;
+    max-width: 90vw;
+    height: 85vh;
+    background: #fffaf7;
+    padding: 50px 60px;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
     position: relative;
     background: #fffaf7;
     animation: unfold 1s ease forwards;
