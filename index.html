@@ -7,11 +7,10 @@
 
 <body class="error-page">
 
-<!-- Fake 404 Section -->
 <div class="error-container" id="errorSection">
-    <h1 class="glow">404</h1>
-    <p>This page does not exist.</p>
-    <p>If you believe this is a mistake, enter the access key (hint: your fav).</p>
+    <h1>404</h1>
+    <p>File not found.</p>
+    <p>If you believe this is a mistake, enter the access key. (Hint: 13-5-15-23 or your fav) </p>
 
     <input type="password" id="password" placeholder="Access Code">
     <button onclick="checkPassword()">Unlock</button>
@@ -19,7 +18,6 @@
     <p id="error-message"></p>
 </div>
 
-<!-- Confirmation Box (Hidden Initially) -->
 <div class="confirm-box" id="confirmBox" style="display:none;">
     <p>Are you sure you want to continue?</p>
     <button onclick="proceed()">Yes</button>
@@ -33,20 +31,20 @@
 <script>
 function checkPassword() {
     const password = document.getElementById("password").value;
-    const correctPassword = "meow"; 
+    const correctPassword = "meow";
 
     if (password === correctPassword) {
         document.getElementById("errorSection").style.display = "none";
         document.getElementById("confirmBox").style.display = "block";
     } else {
         document.getElementById("error-message").innerText =
-            "Wrong password. Try again, genius 😌";
+            "Wrong password. Try again cutu😌";
     }
 }
 
 function cancel() {
     document.querySelector("#confirmBox p").innerText =
-        "You can’t escape this that easily 😌";
+        "You can’t escape this that easily ❤️";
 }
 
 function proceed() {
@@ -54,12 +52,12 @@ function proceed() {
     heartbeat.volume = 0.9;
     heartbeat.play();
 
-    document.body.style.transition = "opacity 2s";
+    document.body.style.transition = "opacity 10s";
     document.body.style.opacity = "0";
 
     setTimeout(() => {
         window.location.href = "secret.html";
-    }, 2500);
+    }, 14000);   
 }
 </script>
 
