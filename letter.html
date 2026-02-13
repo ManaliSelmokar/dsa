@@ -13,7 +13,7 @@
 <!-- Envelope -->
 <div class="envelope-wrapper" id="envelope">
     <div class="envelope">
-        <div class="flap"></div>
+        <div class="flap" id="flap"></div>
         <div class="seal">❤️</div>
     </div>
     <p class="open-text">Click to open ❤️</p>
@@ -65,10 +65,20 @@
 
 <script>
 document.getElementById("envelope").addEventListener("click", function() {
-    document.getElementById("envelope").classList.add("hide");
-    document.getElementById("letterContainer").classList.add("show");
+
+    document.getElementById("flap").classList.add("open-flap");
+
+    setTimeout(() => {
+        document.getElementById("envelope").classList.add("hide");
+    }, 800);
+
+    setTimeout(() => {
+        document.getElementById("letterContainer").classList.add("show");
+    }, 1000);
+
 });
 </script>
+
 
 </body>
 
