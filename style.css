@@ -122,3 +122,23 @@ button:hover {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
+.letter-btn {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background: red;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.letter-btn:hover {
+    background: darkred;
+}
+
+.letter-text {
+    max-width: 500px;
+    margin: 30px auto;
+    line-height: 1.8;
+}
+
