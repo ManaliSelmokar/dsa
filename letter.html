@@ -1,36 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For You ❤️</title>
+    <title>For You ❤️</title>
+    <link rel="stylesheet" href="letter.css">
 
-<!-- Handwritten + Elegant Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="letter.css">
+    <!-- Handwritten Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
 </head>
-<body>
 
-<!-- Background heartbeat audio -->
-<audio id="heartbeat" loop>
-    <source src="heartbeat.m4a" type="audio/mpeg">
-</audio>
+<body>
 
 <!-- Envelope -->
 <div class="envelope-wrapper" onclick="openLetter()">
     <div class="envelope">
         <div class="flap"></div>
-        <div class="seal">❤️</div>
+        <div class="body"></div>
     </div>
-    <p class="open-text">Click to Open</p>
+    <p class="open-text">Click to open ❤️</p>
 </div>
 
 <!-- Letter -->
-<div class="letter-container">
+<div class="letter-container" id="letterContainer">
     <div class="letter">
-        <div class="from">From: M ❤️</div>
-
         <h2>For You ❤️</h2>
 
         <p>
@@ -66,15 +57,20 @@
         and very, very loved.
         </p>
 
-        <p class="final"><strong>Happy Valentine’s Day ❤️</strong></p>
+        <p><strong>Happy Valentine’s Day ❤️</strong></p>
+
+        <div class="signature">From: M ❤️</div>
     </div>
 </div>
 
+<!-- Heartbeat Audio -->
+<audio id="heartbeat" src="heartbeat.mp3" preload="auto"></audio>
+
 <script>
 function openLetter() {
-    document.querySelector(".envelope-wrapper").classList.add("hide");
-    document.querySelector(".letter-container").classList.add("show");
-    document.getElementById("heartbeat").play();
+    document.querySelector('.envelope-wrapper').style.display = "none";
+    document.getElementById('letterContainer').style.display = "flex";
+    document.getElementById('heartbeat').play();
 }
 </script>
 
