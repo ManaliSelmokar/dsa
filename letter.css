@@ -101,6 +101,9 @@ body {
     border: none;
     color: white;
     cursor: pointer;
+    position: absolute;
+    top: 30px;
+    left: 30px;
 }
 
 .letter-btn:hover {
@@ -132,7 +135,7 @@ body {
 
 .letter {
     width: 520px;
-    height: 600px;
+    height: 550px;
     background: #fffaf7;
     padding: 35px 45px;
     border-radius: 16px;
