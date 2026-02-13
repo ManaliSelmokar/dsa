@@ -90,6 +90,19 @@ button:hover {
     animation: fadeIn 0.8s ease;
 }
 
+.teddy {
+    width: 140px;
+    margin-bottom: 20px;
+    animation: floatTeddy 3s ease-in-out infinite;
+}
+
+@keyframes floatTeddy {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+
 /* ========================= */
 /* 🖤 SECRET PAGE (Moody Romantic) */
 /* ========================= */
