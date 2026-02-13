@@ -95,16 +95,17 @@ body {
 
 
 .letter {
-    width: 650px;
-    max-width: 90vw;
-    height: 85vh;
-    background: #fffaf7;
-    padding: 50px 60px;
-    border-radius: 8px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    width: 280px;
+    height: 170px;
+    padding: 20px 18px;
+    border-radius: 6px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
     position: relative;
+    background: #fffaf7;
     animation: unfold 1s ease forwards;
+    overflow: hidden;
 }
+
 
 /* Paper unfold animation */
 @keyframes unfold {
@@ -121,29 +122,29 @@ body {
 .letter h2 {
     text-align: center;
     font-family: 'Dancing Script', cursive;
-    font-size: 38px;
+    font-size: 20px;
     color: #7a2d3a;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .letter p {
-    margin-bottom: 22px;
+    margin-bottom: 8px;
     line-height: 1.8;
-    font-size: 18px;
+    font-size: 12px;
     color: #5c3a41;
 }
 
 .final {
     text-align: center;
-    margin-top: 30px;
-    font-size: 20px;
+    margin-top: 10px;
+    font-size: 12px;
 }
 
 .from {
     position: absolute;
-    top: 20px;
-    right: 30px;
+    top: 10px;
+    right: 10px;
     font-family: 'Dancing Script', cursive;
-    font-size: 20px;
+    font-size: 12px;
     color: #b03a48;
 }
