@@ -33,11 +33,6 @@
   <span style="left:90%; animation-delay:0.5s"></span>
 </div>
 
-<!-- Back Button -->
-<div class="back-btn-wrapper">
-    <button onclick="location.href='secret.html'">← Back</button>
-</div>
-
 <!-- Letter -->
 <div class="letter-container" id="letterContainer">
     <div class="letter">
@@ -88,6 +83,8 @@
     </div>
 </div>
 
+<button class="letter-btn" onclick="goBack()"> Back to us ❤️ </button>
+
 <script>
 document.getElementById("envelope").addEventListener("click", function() {
 
@@ -113,6 +110,10 @@ document.getElementById("envelope").addEventListener("click", function() {
     setTimeout(() => {
         heartbeat.pause();
     }, 10000);
+
+    function goBack() {
+    window.location.href = "secret.html";
+}
 
 });
 </script>
