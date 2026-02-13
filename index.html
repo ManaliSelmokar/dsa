@@ -4,52 +4,62 @@
     <title>404 Not Found</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="error-page">
 
-<div class="error-container">
+<!-- Fake 404 Section -->
+<div class="error-container" id="errorSection">
     <h1 class="glow">404</h1>
     <p>This page does not exist.</p>
-    <p>Unless you know the code.</p>
+    <p>If you believe this is a mistake, enter the access key (hint: your fav).</p>
 
     <input type="password" id="password" placeholder="Access Code">
     <button onclick="checkPassword()">Unlock</button>
-    <p id="message"></p>
+
+    <p id="error-message"></p>
 </div>
 
-<div id="overlay" class="hidden">
-    <div class="confirm-box">
-        <p>Are you sure you want to continue?</p>
-        <button onclick="proceed()">Yes</button>
-        <button onclick="cancel()">No</button>
-    </div>
+<!-- Confirmation Box (Hidden Initially) -->
+<div class="confirm-box" id="confirmBox" style="display:none;">
+    <p>Are you sure you want to continue?</p>
+    <button onclick="proceed()">Yes</button>
+    <button onclick="cancel()">No</button>
 </div>
 
 <audio id="heartbeat">
-    <source src="heartbeat.m4a" type="audio/mpeg">
+    <source src="heartbeat.m4a" type="audio/mp4">
 </audio>
 
 <script>
 function checkPassword() {
     const password = document.getElementById("password").value;
+    const correctPassword = "meow"; 
 
-    if (password === "meow") {
-        document.getElementById("heartbeat").play();
-        document.getElementById("overlay").classList.remove("hidden");
+    if (password === correctPassword) {
+        document.getElementById("errorSection").style.display = "none";
+        document.getElementById("confirmBox").style.display = "block";
     } else {
-        document.getElementById("message").innerText =
-        "Wrong password. Try again, Romeo 😌";
+        document.getElementById("error-message").innerText =
+            "Wrong password. Try again, genius 😌";
     }
 }
 
-function proceed() {
-    document.body.classList.add("fade-out");
-    setTimeout(() => {
-        window.location.href = "secret.html";
-    }, 2000);
+function cancel() {
+    document.querySelector("#confirmBox p").innerText =
+        "You can’t escape this that easily 😌";
 }
 
-function cancel() {
-    document.getElementById("overlay").classList.add("hidden");
+function proceed() {
+    const heartbeat = document.getElementById("heartbeat");
+    heartbeat.volume = 0.9;
+    heartbeat.play();
+
+    document.body.style.transition = "opacity 2s";
+    document.body.style.opacity = "0";
+
+    setTimeout(() => {
+        window.location.href = "secret.html";
+    }, 2500);
 }
 </script>
 
