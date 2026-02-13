@@ -94,27 +94,25 @@ body {
     pointer-events: none;
 }
 
-/* Back Button */
-.back-btn-wrapper {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-}
-
-.back-btn-wrapper button {
-    background: #f7cdd5;
+.letter-btn {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background: red;
     border: none;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-size: 14px;
+    color: white;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: transform 0.2s ease;
 }
 
-.back-btn-wrapper button:hover {
-    transform: scale(1.05);
+.letter-btn:hover {
+    background: darkred;
 }
+
+.letter-text {
+    max-width: 500px;
+    margin: 30px auto;
+    line-height: 1.8;
+}
+
 
 /* ================= LETTER ================= */
 
