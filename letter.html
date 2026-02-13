@@ -84,6 +84,11 @@
 
 
 <script>
+    
+function goBack() {
+    window.location.href = "secret.html";
+}
+    
 document.getElementById("envelope").addEventListener("click", function() {
 
     const heartbeat = document.getElementById("heartbeat");
@@ -109,9 +114,6 @@ document.getElementById("envelope").addEventListener("click", function() {
         heartbeat.pause();
     }, 10000);
 
-    function goBack() {
-    window.location.href = "secret.html";
-}
 
 });
 </script>
