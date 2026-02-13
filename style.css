@@ -88,6 +88,9 @@ button:hover {
     margin: 120px auto;
     box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     animation: fadeIn 0.8s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .teddy {
