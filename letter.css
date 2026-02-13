@@ -107,53 +107,27 @@ body {
     pointer-events: none;
 }
 
-
 .letter-container.show {
     opacity: 1;
     transform: translateY(0) scale(1);
     pointer-events: auto;
 }
 
-
 .letter {
-    width: 600px;
-    max-width: 92vw;
+    width: 520px;              /* fixed width */
+    height: 600px;             /* fixed height */
     background: #fffaf7;
-    padding: 60px 70px;
+    padding: 45px 55px;
     border-radius: 16px;
     box-shadow: 0 30px 70px rgba(0,0,0,0.12);
     position: relative;
-    animation: unfold 1s ease forwards;
+    overflow: hidden;          /* prevents overflow */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* centers text vertically */
 }
 
-/* Paper unfold animation */
-@keyframes unfold {
-    from {
-        transform: rotateX(90deg);
-        opacity: 0;
-    }
-    to {
-        transform: rotateX(0deg);
-        opacity: 1;
-    }
-}
-
-.letter h2 {
-    text-align: center;
-    font-family: 'Dancing Script', cursive;
-    font-size: 34px;
-    color: #7a2d3a;
-    margin-bottom: 30px;
-}
-
-.letter p {
-    text-align: center;
-    margin-bottom: 16px;
-    line-height: 1.9;
-    font-size: 16px;
-    color: #5c3a41;
-}
-
+/* subtle fold line */
 .letter::before {
     content: "";
     position: absolute;
@@ -164,19 +138,30 @@ body {
     background: rgba(0,0,0,0.04);
 }
 
+/* Title */
+.letter h2 {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    color: #7a2d3a;
+    margin-bottom: 22px;
+}
+
+/* Paragraph text */
+.letter p {
+    text-align: center;
+    margin-bottom: 12px;
+    line-height: 1.7;
+    font-size: 14.5px;    /* slightly reduced to ensure fit */
+    color: #5c3a41;
+}
+
+/* Final line */
 .final {
     text-align: center;
-    margin-top: 30px;
-    font-size: 18px;
+    margin-top: 18px;
+    font-size: 16px;
     color: #b03a48;
 }
 
-.from {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-family: 'Dancing Script', cursive;
-    font-size: 12px;
-    color: #b03a48;
-}
 
