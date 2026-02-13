@@ -29,7 +29,22 @@ body {
     background: #fce4e8;
     border-radius: 6px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    overflow: hidden;
 }
+
+.envelope::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.08), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+
+
 
 .flap {
     position: absolute;
@@ -47,6 +62,9 @@ body {
     transform: rotateX(180deg);
 }
 
+.envelope.shadow::after {
+    opacity: 1;
+}
 
 .seal {
     position: absolute;
@@ -82,10 +100,11 @@ body {
 .letter-container {
     position: absolute;
     opacity: 0;
-    transform: translateY(40px) scale(0.8);
+    transform: translateY(60px) scale(0.95);
     transition: all 1s ease;
     pointer-events: none;
 }
+
 
 .letter-container.show {
     opacity: 1;
@@ -108,6 +127,28 @@ body {
     overflow: hidden;
 }
 
+
+/* subtle vertical fold */
+.letter::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background: rgba(0,0,0,0.05);
+}
+
+/* subtle horizontal fold */
+.letter::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(0,0,0,0.04);
+}
 
 /* Paper unfold animation */
 @keyframes unfold {
