@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class stringQs {
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the choice: \n1. Cummulative length \n2. Replace characters \n3. Username");
+        System.out.println("Enter the choice: \n1. Cummulative length \n2. Replace characters \n3. Username \n4. String builder cummulative length \n5. Sb replace char \n6. Sb username ");
         int n = sc.nextInt();
         switch (n) {
             case 1:
@@ -18,6 +18,18 @@ public class stringQs {
 
             case 3:
                 username();
+                break;
+
+            case 4:
+                appendLen();
+                break;
+
+            case 5:
+                replaceChar();
+                break;
+
+            case 6:
+                uname();
                 break;
         
             default:
@@ -77,5 +89,42 @@ public class stringQs {
         }
 
         System.out.println("Username: "+username);
+    }
+
+    static void appendLen(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter the strings");
+        StringBuilder sb = new StringBuilder(sc.next());
+        sb.append(sc.next());
+        sb.append(sc.next());
+
+        System.out.println("Cummulative Length: "+sb.length());
+    }
+
+    static void replaceChar(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a string");
+        StringBuilder sb = new StringBuilder(sc.next());
+        for(int i=0;i<sb.length();i++){
+            if(sb.charAt(i)=='E'){
+                sb.setCharAt(i, 'I');
+            }
+            else if(sb.charAt(i)=='e'){
+                sb.setCharAt(i, 'i');
+            }
+        }
+        System.out.println("Result: "+sb);
+    }
+
+    static void uname(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a string");
+        StringBuilder sb = new StringBuilder(sc.next());
+        for(int i=0;i<sb.length();i++){
+            if(sb.charAt(i)=='@'){
+                sb.delete(i, sb.length());
+            }
+        }
+        System.out.println("Username: "+sb);
     }
 }
