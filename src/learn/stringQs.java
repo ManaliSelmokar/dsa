@@ -1,11 +1,12 @@
 package learn;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 public class stringQs {
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the choice: \n1. Cummulative length \n2. Replace characters \n3. Username \n4. String builder cummulative length \n5. Sb replace char \n6. Sb username \n7. Lowercase \n8. Reverse \n9. Palindrome");
+        System.out.println("Enter the choice: \n1. Cummulative length \n2. Replace characters \n3. Username \n4. String builder cummulative length \n5. Sb replace char \n6. Sb username \n7. Lowercase \n8. Reverse \n9. Palindrome \n10. Reverse words \n11. Rotations");
         int n = sc.nextInt();
         switch (n) {
             case 1:
@@ -42,6 +43,14 @@ public class stringQs {
 
             case 9:
                 palindrome();
+                break;
+
+            case 10:
+                reverseWords();
+                break;
+
+            case 11:
+                System.out.println("Rotations possible? "+rotations());
                 break;
         
             default:
@@ -197,5 +206,58 @@ public class stringQs {
             }
         }
         System.out.println("Is a Palindrome: "+bool);
+    }
+
+    static void reverseWords(){
+        String s = "Please reverse the words";
+        StringBuilder word = new StringBuilder();
+        StringBuilder result = new StringBuilder();
+        Stack<String> stack = new Stack<>();
+
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)!=' '){
+                word.append(s.charAt(i));
+            }
+            else if(word.length()>0){
+                stack.push(word.toString());
+                word.setLength(0);
+            }
+        }
+
+        if(word.length()>0){
+                stack.push(word.toString());
+        }
+
+        while(!stack.isEmpty()){
+            result.append(stack.pop());
+            if(!stack.isEmpty()){
+                result.append(' ');
+            }
+        }
+
+        System.out.println("Result: "+result);
+    }
+
+    static boolean rotations(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter strings");
+        String s1 = sc.next();
+        String s2 = sc.next();
+        boolean b = false;
+        char last;
+        int n = s1.length();
+
+        if(s1.length()!=s2.length()) return false;
+        
+        for(int i=0;i<n;i++){
+            if(s1.equals(s2)){
+                return true;
+            }
+            
+            last = s1.charAt(s1.length()-1);
+            s1 = last + s1.substring(0,s1.length()-1);
+        }
+
+        return false;
     }
 }
