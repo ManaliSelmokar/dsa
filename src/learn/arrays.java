@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class arrays {
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Please select an option \n1. Min Max number in an array \n2. Sort an array \n3. Spiral Order matrix \n4. Transpose");
+        System.out.println("Please select an option \n1. Min Max number in an array \n2. Sort an array \n3. Spiral Order matrix \n4. Transpose \n5. Shift n positions ");
         int choice = sc.nextInt();
         switch(choice){
             case 1:
@@ -22,6 +22,14 @@ public class arrays {
 
             case 4:
                 transpose();
+                break;
+
+            case 5:
+                shiftLeftNtimes();
+                break;
+
+            case 6:
+                shiftRightNtimes();
                 break;
 
             default:
@@ -162,5 +170,37 @@ public class arrays {
             }
             System.out.println();
         }
+    }
+
+    static void shiftLeftNtimes(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter string");
+        StringBuilder s = new StringBuilder(sc.next());
+        System.out.println("Enter n");
+        int n = sc.nextInt();
+
+        for(int i=0;i<n;i++){
+            s.append(s.charAt(0));
+            s.deleteCharAt(0);
+        }
+
+        System.out.println("Result: "+s);
+    }
+
+        static void shiftRightNtimes(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter string");
+        StringBuilder s = new StringBuilder(sc.next());
+        System.out.println("Enter n");
+        int n = sc.nextInt();
+        char c;
+
+        for(int i=0;i<n;i++){
+            c = s.charAt(0);
+            s.setCharAt(0,s.charAt(1) );
+            s.append(c);
+        }
+
+        System.out.println("Result: "+s);
     }
 }
