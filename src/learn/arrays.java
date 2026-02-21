@@ -28,10 +28,6 @@ public class arrays {
                 shiftLeftNtimes();
                 break;
 
-            case 6:
-                shiftRightNtimes();
-                break;
-
             default:
                 System.out.println("Enter a different option");
 
@@ -174,33 +170,23 @@ public class arrays {
 
     static void shiftLeftNtimes(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter string");
-        StringBuilder s = new StringBuilder(sc.next());
-        System.out.println("Enter n");
+        System.out.println("Enter the no of elements in arr and arr values");
+        int[] arr = new int[sc.nextInt()];
+        for (int i = 0; i < arr.length; i++) arr[i] = sc.nextInt();
+        System.out.println("No of rotations");
         int n = sc.nextInt();
 
-        for(int i=0;i<n;i++){
-            s.append(s.charAt(0));
-            s.deleteCharAt(0);
+        for (int i = 0; i < n; i++) {
+            int first = arr[0];
+            for (int j = 0; j < arr.length - 1; j++) {
+                arr[j] = arr[j + 1];
+            }
+            arr[arr.length - 1] = first;
         }
-
-        System.out.println("Result: "+s);
+        System.out.println("Result: ");
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }
     }
 
-        static void shiftRightNtimes(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter string");
-        StringBuilder s = new StringBuilder(sc.next());
-        System.out.println("Enter n");
-        int n = sc.nextInt();
-        char c;
-
-        for(int i=0;i<n;i++){
-            c = s.charAt(0);
-            s.setCharAt(0,s.charAt(1) );
-            s.append(c);
-        }
-
-        System.out.println("Result: "+s);
-    }
 }
