@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class arrays {
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Please select an option \n1. Min Max number in an array \n2. Sort an array \n3. Spiral Order matrix \n4. Transpose \n5. Shift n positions ");
+        System.out.println("Please select an option \n1. Min Max number in an array \n2. Sort an array \n3. Spiral Order matrix \n4. Transpose \n5. Shift n positions \n6. Max Product Triplet \n7. Max consecutive ones or zeros \n8. Move zeros to end \n9. Waveform \n10. Plus One");
         int choice = sc.nextInt();
         switch(choice){
             case 1:
@@ -19,13 +19,39 @@ public class arrays {
             case 3:
                 spiralOrderMatrix();
                 break;
-
+ 
             case 4:
                 transpose();
                 break;
 
             case 5:
                 shiftLeftNtimes();
+                break;
+
+            case 6:
+                int[] maxProd = { 10, 3, 5, 6, 20 };
+                maxProductOfTriplet(maxProd);
+                break;
+
+            case 7:
+                int[] binArr= {0,1,0,0,1,1,1,1,1,1,0};
+                maxConsecOnes(binArr);
+                break;
+
+            case 8:
+                int[] zeroNonZerosArr = {0,1,2,0,3,4,0,5,6,0};
+                zeroNonZeros(zeroNonZerosArr);
+                break;
+
+            case 9:
+                int[] waveformArr = {2, 4, 7, 8, 9, 10};
+                waveform(waveformArr);
+                break;
+
+            case 10:
+                int[] digits = {1, 2, 3, 4};
+                int[] result = plusOne(digits);
+                for (int num : result) System.out.print(num + " ");
                 break;
 
             default:
@@ -187,6 +213,91 @@ public class arrays {
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
         }
+    }
+
+    static void maxProductOfTriplet(int[] arr){
+        int maxProduct = Integer.MIN_VALUE;
+        for(int i=0;i<arr.length-2;i++){
+            for(int j=i+1;j<arr.length-1;j++){
+                for(int k=j+1;k<arr.length;k++){
+                    maxProduct = Math.max(maxProduct, arr[i]*arr[j]*arr[k]);
+                }
+            }
+        }
+        System.out.println("Max product: "+maxProduct);
+    }
+
+    static void maxConsecOnes(int[] binArr){
+        if(binArr.length==0) System.out.println("Empty arr");
+        int maxCount = 0,count = 1;
+        for(int i=1;i<binArr.length;i++){
+            if(binArr[i]==binArr[i-1]) count++;
+            else{
+                maxCount = Math.max(maxCount, count);
+                count = 1;
+            }
+        }
+
+        System.out.println("Consecutive Max Count: "+maxCount);
+    }
+
+    static void zeroNonZeros(int[] arr){
+        int count = 0,index = 0;
+        int[] res = new int[arr.length];
+        for(int i=0;i<arr.length;i++){
+            if(index<arr.length){
+                if(arr[i]==0) count++;
+                else{
+                    res[index] = arr[i];
+                    index++;
+                }
+            }
+        }
+        for(int i=0;i<count;i++){
+            res[index] = 0;
+            index++;
+        }
+
+        System.out.print("Result : ");
+        for(int i=0;i<res.length;i++) System.out.print(res[i]+" ");
+    }
+
+    static void waveform(int[] arr){
+        int temp = 0;
+        for(int i=0;i<arr.length-1;i++){
+            if(i%2==0){
+                temp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = temp;
+            }
+        }
+        System.out.print("Result : ");
+        for(int i=0;i<arr.length;i++) System.out.print(arr[i]+" ");
+    }
+
+    static int[] plusOne(int[] digits) {
+
+        // Start from last digit
+        for (int i = digits.length - 1; i >= 0; i--) {
+
+            // If digit is less than 9, just add 1 and return
+            if (digits[i] < 9) {
+                System.out.println("Digits: "+digits[i]);
+                digits[i]++;
+                System.out.println("Digits++: "+digits[i]);
+                return digits;
+            }
+
+            // If digit is 9, make it 0 and carry continues
+            digits[i] = 0;
+        }
+
+        // If we are here, all digits were 9
+        // Example: 999 → 1000
+        int[] result = new int[digits.length + 1];
+        result[0] = 1;
+
+        return result;
     }
 
 }
