@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class arrays {
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Please select an option \n1. Min Max number in an array \n2. Sort an array \n3. Spiral Order matrix \n4. Transpose \n5. Shift n positions \n6. Max Product Triplet \n7. Max consecutive ones or zeros \n8. Move zeros to end \n9. Waveform \n10. Plus One");
+        System.out.println("Please select an option \n1. Min Max number in an array \n2. Sort an array \n3. Spiral Order matrix \n4. Transpose \n5. Shift n positions \n6. Max Product Triplet \n7. Max consecutive ones or zeros \n8. Move zeros to end \n9. Waveform \n10. Plus One \n11. Stock buy and sell");
         int choice = sc.nextInt();
         switch(choice){
             case 1:
@@ -52,6 +52,10 @@ public class arrays {
                 int[] digits = {1, 2, 3, 4};
                 int[] result = plusOne(digits);
                 for (int num : result) System.out.print(num + " ");
+                break;
+
+            case 11:
+                stockBuyAndSell();
                 break;
 
             default:
@@ -298,6 +302,28 @@ public class arrays {
         result[0] = 1;
 
         return result;
+    }
+
+    static void stockBuyAndSell(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter size of the array: ");
+        int n = sc.nextInt();
+        System.out.print("\nEnter the elements in an array (non-zero): ");
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+
+        int max = 0;
+        for(int i=0;i<n-1;i++){
+            for(int j=i+1;j<n;j++){
+                    if(arr[j]-arr[i]>max){
+                        max = arr[j]-arr[i];
+                    }
+            }
+        }
+
+        System.out.println("Profit: "+max);
     }
 
 }
