@@ -1,11 +1,14 @@
 package learn;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class arrays {
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Please select an option \n1. Min Max number in an array \n2. Sort an array \n3. Spiral Order matrix \n4. Transpose \n5. Shift n positions \n6. Max Product Triplet \n7. Max consecutive ones or zeros \n8. Move zeros to end \n9. Waveform \n10. Plus One \n11. Stock buy and sell \n12. Stock buy and sell 2 \n13. Remove duplicates");
+        System.out.println("Please select an option \n1. Min Max number in an array \n2. Sort an array \n3. Spiral Order matrix \n4. Transpose \n5. Shift n positions \n6. Max Product Triplet \n7. Max consecutive ones or zeros \n8. Move zeros to end \n9. Waveform \n10. Plus One \n11. Stock buy and sell \n12. Stock buy and sell 2 \n13. Remove duplicates \n14. Alternate Positive Negative \n15. Leader's array \n16. Missing Repeating Array \n17. Missing ranges \n18. Sum of subarrays");
         int choice = sc.nextInt();
         switch(choice){
             case 1:
@@ -63,8 +66,38 @@ public class arrays {
                 break;
 
             case 13:
-                int[] arr = {1,1,2,3,3,3,4,5,6,6,6};
-                removeDuplicatesFromSortedArr(arr);
+                int[] dupArr = {1,1,2,3,3,3,4,5,6,6,6};
+                removeDuplicatesFromSortedArr(dupArr);
+                break;
+
+            case 14:
+                ArrayList<Integer> altArr = new ArrayList<>(Arrays.asList(1,2,-3,4,-5,6));
+                altPositiveNegative(altArr);
+                break;
+
+            case 15:
+                int[] leaderArr = {10,4,5,16,3,6,11,12,1};
+                ArrayList<Integer> res = leadersArray(leaderArr);
+                for (int j = 0; j < res.size(); j++) System.out.print(res.get(j) + " ");
+                break;
+
+            case 16:
+                ArrayList<Integer> missRepeatArr = new ArrayList<>(Arrays.asList(7,8,8,1,2,4,3,5));
+                missingRepeatingArray(missRepeatArr);
+                break;
+
+            case 17:
+                int[] missingArr = {-48, -10, -6, -4, 0, 4, 17};
+                int lower = -54, upper = 17;
+                List<List<Integer>> missingRes = missingRange(missingArr,lower,upper);
+                for (List<Integer> range : missingRes) {
+                    System.out.print("[ "+range.get(0) + " " + range.get(1)+" ]");
+                }
+                break;
+
+            case 18:
+                int[] arr = {1, 4, 5, 3, 2};
+                System.out.println("Sum of Subarrays: "+subarraySum(arr));
                 break;
 
             default:
@@ -395,7 +428,85 @@ public class arrays {
         }
         System.out.print("Result:");
         for(int i=0;i<ind;i++) System.out.print(" "+arr[i]);
-        
+    }
+
+    static void altPositiveNegative(ArrayList<Integer> arr){
+        ArrayList<Integer> posNo = new ArrayList<>();
+        ArrayList<Integer> negNo = new ArrayList<>();
+
+        for(int i=0;i<arr.size();i++){
+            if (arr.get(i) >= 0)
+                posNo.add(arr.get(i));
+            else
+                negNo.add(arr.get(i));
+        }
+
+        int posInd = 0, negInd = 0, i = 0;
+
+        while(posInd<posNo.size() && negInd<negNo.size()){
+            if(i%2==0){ 
+                arr.set(i++,posNo.get(posInd++));
+            }
+            else if(i%2!=0){
+                arr.set(i++,negNo.get(negInd++));
+            }
+        }
+
+        while(posInd<posNo.size()){
+            arr.set(i++,posNo.get(posInd++));
+        }
+        while(negInd<negNo.size()){
+            arr.set(i++,negNo.get(negInd++));
+        }
+
+        for (int j = 0; j < arr.size(); j++) System.out.print(arr.get(j) + " ");
+    }
+
+    static ArrayList<Integer> leadersArray(int[] arr){
+        ArrayList<Integer> res = new ArrayList<>();
+        for(int i=arr.length-1;i>0;i--){
+            while(arr[i]<arr[i-1]){
+                i--;
+                res.add(arr[i]);
+                if(i==0) return res;
+            }
+        }
+        return res;
+    }
+
+    static void missingRepeatingArray(ArrayList<Integer> Arr){
+        Arr.sort(null);
+        for(int i=0;i<Arr.size()-1;i++){
+            if(Arr.get(i)+1!=Arr.get(i+1)){ 
+                if(Arr.get(i)==Arr.get(i+1)) System.out.println("Duplicate: "+Arr.get(i));
+                else System.out.println("Missing: "+(Arr.get(i)+1));
+            }
+        }
+    }
+
+    static List<List<Integer>> missingRange(int[] arr,int lower,int upper){
+        List<List<Integer>> ranges = new ArrayList<>();
+        if(lower<arr[0]) ranges.add(Arrays.asList(lower,arr[0]-1));
+        for(int i=0;i<arr.length-1;i++){
+            if(arr[i+1]-arr[i]>1){
+                ranges.add(Arrays.asList(arr[i]+1,arr[i+1]-1));
+            }
+        }
+        if(upper>arr[arr.length-1]) ranges.add(Arrays.asList(arr[arr.length-1]+1,upper));
+        return ranges;
+    }
+
+    static int subarraySum(int[] arr) {
+        int n = arr.length;
+        int result = 0, temp = 0;
+        for (int i = 0; i < n; i++) {
+            temp = 0;
+            for (int j = i; j < n; j++) {
+                temp += arr[j];
+                result += temp;
+            }
+        }
+        return result;
     }
 
 }
