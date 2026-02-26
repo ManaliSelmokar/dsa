@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class arrays {
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Please select an option \n1. Min Max number in an array \n2. Sort an array \n3. Spiral Order matrix \n4. Transpose \n5. Shift n positions \n6. Max Product Triplet \n7. Max consecutive ones or zeros \n8. Move zeros to end \n9. Waveform \n10. Plus One \n11. Stock buy and sell");
+        System.out.println("Please select an option \n1. Min Max number in an array \n2. Sort an array \n3. Spiral Order matrix \n4. Transpose \n5. Shift n positions \n6. Max Product Triplet \n7. Max consecutive ones or zeros \n8. Move zeros to end \n9. Waveform \n10. Plus One \n11. Stock buy and sell \n12. Stock buy and sell 2 \n13. Remove duplicates");
         int choice = sc.nextInt();
         switch(choice){
             case 1:
@@ -56,6 +56,15 @@ public class arrays {
 
             case 11:
                 stockBuyAndSell();
+                break;
+
+            case 12:
+                stockBuyAndSell2();
+                break;
+
+            case 13:
+                int[] arr = {1,1,2,3,3,3,4,5,6,6,6};
+                removeDuplicatesFromSortedArr(arr);
                 break;
 
             default:
@@ -324,6 +333,69 @@ public class arrays {
         }
 
         System.out.println("Profit: "+max);
+    }
+
+    static void stockBuyAndSell2(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter size of the array: ");
+        int n = sc.nextInt();
+        System.out.print("\nEnter the elements in an array (non-zero): ");
+        int[] prices = new int[n];
+        for(int i=0;i<n;i++){
+            prices[i] = sc.nextInt();
+        }
+
+        int lMin = prices[0];  
+        int lMax = prices[0];  
+        int res = 0;
+
+        int i = 0;
+        while (i < n - 1) {
+            System.out.println("-----------------------");
+            System.out.println("Current Result");
+            System.out.println(""+res);
+            System.out.println("-----------------------");
+            // Find local minima
+            System.out.println("-----------------------");
+            System.out.println("Local Minima");
+            while (i < n - 1 && prices[i] >= prices[i + 1]) { 
+                System.out.println("i: "+i);
+                i++; }
+            System.out.println("lmin: "+prices[i]);
+            lMin = prices[i];
+            System.out.println("-----------------------");
+           
+            System.out.println("-----------------------");
+            System.out.println("Local Maxima");
+            // Local Maxima
+            while (i < n - 1 && prices[i] <= prices[i + 1]) { 
+                System.out.println("i: "+i);
+                i++; }
+            System.out.println("lmax: "+prices[i]);
+            lMax = prices[i];
+            System.out.println("-----------------------");
+
+
+            // Add current profit
+            res += (lMax - lMin);
+            System.out.println("-----------------------");
+        }
+
+        System.out.println("Profit: "+res);
+    }
+
+    static void removeDuplicatesFromSortedArr(int[] arr){
+        int[] distinctArr = new int[arr.length];
+        int ind=1;
+        if (arr.length<=1) System.out.println("Same array");
+        for(int i=1;i<arr.length;i++){
+            if(arr[i]!=arr[i-1]){
+                arr[ind++] = arr[i];
+            } 
+        }
+        System.out.print("Result:");
+        for(int i=0;i<ind;i++) System.out.print(" "+arr[i]);
+        
     }
 
 }

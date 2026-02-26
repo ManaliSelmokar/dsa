@@ -6,7 +6,7 @@ import java.util.Stack;
 public class stringQs {
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the choice: \n1. Cummulative length \n2. Replace characters \n3. Username \n4. String builder cummulative length \n5. Sb replace char \n6. Sb username \n7. Lowercase \n8. Reverse \n9. Palindrome \n10. Reverse words \n11. Rotations");
+        System.out.println("Enter the choice: \n1. Cummulative length \n2. Replace characters \n3. Username \n4. String builder cummulative length \n5. Sb replace char \n6. Sb username \n7. Lowercase \n8. Reverse \n9. Palindrome \n10. Reverse words \n11. Rotations \n12. Shift left \n13. Shift right");
         int n = sc.nextInt();
         switch (n) {
             case 1:
@@ -51,6 +51,14 @@ public class stringQs {
 
             case 11:
                 System.out.println("Rotations possible? "+rotations());
+                break;
+
+            case 12: 
+                shiftLeftNtimes();
+                break;
+
+            case 13:
+                shiftRightNtimes();
                 break;
         
             default:
@@ -259,5 +267,43 @@ public class stringQs {
         }
 
         return false;
+    }
+
+        static void shiftLeftNtimes(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter string");
+        StringBuilder s = new StringBuilder(sc.next());
+        System.out.println("Enter n");
+        int n = sc.nextInt();
+
+        for(int i=0;i<n;i++){
+            s.append(s.charAt(0));
+            s.deleteCharAt(0);
+        }
+
+        System.out.println("Result: "+s);
+    }
+
+        static void shiftRightNtimes(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter string");
+        String s = new String(sc.next());
+        System.out.println("Enter n");
+        int n = sc.nextInt();
+        char c;
+        String res = new String("");
+        res = s;
+
+        for(int i=0;i<n;i++){
+            c = res.charAt(res.length()-1);
+            s = res;
+            res = "";
+            res += c;
+            for(int j=0;j<s.length()-1;j++){
+                res += s.charAt(j);
+            }
+        }
+
+        System.out.println("Result: "+res);
     }
 }
