@@ -1,66 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>404 Not Found</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Happy Birthday 👑✨</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
+<body>
 
-<body class="error-page">
-
-<div class="error-container" id="errorSection">
-    <h1>404</h1>
-    <p>File not found.</p>
-    <p>If you believe this is a mistake, enter the access key. (Hint: 13-5-15-23 or your fav) </p>
-
-    <input type="password" id="password" placeholder="Access Code">
-    <button onclick="checkPassword()">Unlock</button>
-
-    <p id="error-message"></p>
-</div>
-
-<div class="confirm-box" id="confirmBox" style="display:none;">
-    <img src="images/teddy.jpg" class="teddy">
-    <p>Are you sure you want to continue?</p>
-    <button onclick="proceed()">Yes</button>
-    <button onclick="cancel()">No</button>
-</div>
-
-<audio id="heartbeat">
-    <source src="heartbeat.m4a" type="audio/mp4">
+<audio id="bgMusic" loop>
+  <source src="assets/music.mp3" type="audio/mpeg">
 </audio>
 
-<script>
-function checkPassword() {
-    const password = document.getElementById("password").value;
-    const correctPassword = "meow";
+<!-- SECTION 1 -->
+<section id="intro">
+  <h1>Happy Birthday to the main character of our lives.</h1>
 
-    if (password === correctPassword) {
-        document.getElementById("errorSection").style.display = "none";
-        document.getElementById("confirmBox").style.display = "block";
-    } else {
-        document.getElementById("error-message").innerText =
-            "Wrong password. Try again cutu 😊";
-    }
-}
+  <div class="cake-container">
+    <img src="assets/cake.png" class="cake">
+    <div class="cake-glow"></div>
+  </div>
 
-function cancel() {
-    document.querySelector("#confirmBox p").innerText =
-        "You can’t escape this that easily ❤️";
-}
+  <button id="wishBtn">Make a Wish ✨</button>
+</section>
 
-function proceed() {
-    const heartbeat = document.getElementById("heartbeat");
-    heartbeat.volume = 0.9;
-    heartbeat.play();
+<!-- SECTION 2 -->
+<section id="gallery">
+  <h2>Every queen has her eras.</h2>
 
-    document.body.style.transition = "opacity 10s";
-    document.body.style.opacity = "0";
+  <div class="carousel">
+    <img src="assets/photo1.jpg" class="active">
+    <img src="assets/photo2.jpg">
+    <img src="assets/photo3.jpg">
+  </div>
 
-    setTimeout(() => {
-        window.location.href = "secret.html";
-    }, 10000);   
-}
-</script>
+  <button id="toLetters">From the Ones who Love you.</button>
+</section>
 
+<!-- SECTION 3 -->
+<section id="letters">
+  <h2>May this year treat you like the amazing human being that you are.</h2>
+
+  <div class="cards">
+    <div class="card" data-letter="tau">A letter from Tau</div>
+    <div class="card" data-letter="aai">A letter from Aai</div>
+    <div class="card" data-letter="baba">A letter from Baba</div>
+  </div>
+
+  <div class="final-message">
+    Fifteen and already iconic.
+  </div>
+</section>
+
+<!-- Modal -->
+<div id="letterModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="letterText"></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
