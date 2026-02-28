@@ -14,6 +14,11 @@ public class basics {
         System.out.println("5. Print even numbers up to a limit");
         System.out.println("6. Student Marks Evaluation");
         System.out.println("7. Check if a number is prime");
+        System.out.println("8. Eligible to vote");
+        System.out.println("9. Count of +ve and -ve numbers");
+        System.out.println("10. GCD");
+        System.out.println("11. Fibonacci series");
+        System.out.println("12. Prime less than n");
         System.out.print("Enter your choice (1-7):\t");
         int choice = sc.nextInt();
         switch (choice) {
@@ -37,6 +42,21 @@ public class basics {
                 break;
             case 7:
                 primeNumber();  
+                break;
+            case 8:
+                eligibleToVote();
+                break;
+            case 9:
+                countOfNumbers();
+                break;
+            case 10:
+                gcd();
+                break;
+            case 11:
+                fibonacciSeries();
+                break;
+            case 12:
+                primeLessThanN();
                 break;
         
             default:
@@ -207,4 +227,109 @@ public class basics {
         }
         System.out.println();
     }
+
+    static void eligibleToVote(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter age of a person");
+        int age = sc.nextInt();
+        if(age>18){
+            System.out.println("You are eligible to vote.");
+        }
+        else System.out.println("You are not eligible to vote.");
+        sc.close();
+    }
+
+    static void countOfNumbers(){
+        Scanner sc = new Scanner(System.in);
+        int positive=0, negative=0, zeros=0,choice;
+        do{
+            System.out.println("Enter any number you want to");
+            int n = sc.nextInt();
+            if(n>0) positive++;
+            else if(n<0) negative++;
+            else if(n==0) zeros++;
+
+            System.out.println("Press 1 to continue");
+            choice = sc.nextInt();
+        }while(choice==1);
+
+        System.out.println("Number of positive numbers "+positive+"\nNumber of negative numbers "+negative+"\nNumber of zeros "+zeros);
+        sc.close();
+    }
+
+    static void gcd(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the first number");
+        int n1 = sc.nextInt();
+        System.out.println("Enter the second number");
+        int n2 = sc.nextInt();
+        int n=0,max=0;
+        if(n1>n2) n=n2;
+        else if(n2>n1) n=n1;
+
+        for(int i=1;i<=n;i++){
+            if(n1%i==0&&n2%i==0){
+                if(max<i) max = i;
+            }
+        }
+
+        System.out.println("GCD: "+max);
+        sc.close();
+    }
+
+    static void fibonacciSeries(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of terms in the Fibonnaci series");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i=0;i<n;i++){
+            arr[0]=0;
+            arr[1]=1;
+            if(i>1){
+                arr[i] = arr[i-1]+arr[i-2];
+            }
+            System.out.print(arr[i]+" ");
+        }
+        sc.close();
+    }
+
+    static void primeLessThanN(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter n");
+        int n = sc.nextInt();
+        // creation of boolean array
+        boolean[] prime = new boolean[n + 1];
+        for (int i = 0; i <= n; i++) {
+            prime[i] = true;
+        }
+ 
+        for (int p = 2; p * p <= n; p++) {
+            if (prime[p]) {
+                // marking as false
+                for (int i = p * p; i <= n; i += p)
+                    prime[i] = false;
+            }
+        }
+ 
+        // Count number of primes
+        int count = 0;
+        for (int p = 2; p <= n; p++) {
+            if (prime[p])
+                count++;
+        }
+ 
+        // Store primes in an array
+        int[] res = new int[count];
+        int index = 0;
+        for (int p = 2; p <= n; p++) {
+            if (prime[p])
+                res[index++] = p;
+        }
+
+        System.out.println("Prime nos: ");
+        for(int i=0;i<res.length;i++){
+            System.out.print(res[i]+" ");
+        } 
+    }
+
 }

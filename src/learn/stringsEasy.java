@@ -3,7 +3,7 @@ package learn;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class stringQs {
+public class stringsEasy {
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the choice: \n1. Cummulative length \n2. Replace characters \n3. Username \n4. String builder cummulative length \n5. Sb replace char \n6. Sb username \n7. Lowercase \n8. Reverse \n9. Palindrome \n10. Reverse words \n11. Rotations \n12. Shift left \n13. Shift right");
