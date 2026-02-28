@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class arrays {
+public class arraysEasy {
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
         System.out.println("Please select an option \n1. Min Max number in an array \n2. Sort an array \n3. Spiral Order matrix \n4. Transpose \n5. Shift n positions \n6. Max Product Triplet \n7. Max consecutive ones or zeros \n8. Move zeros to end \n9. Waveform \n10. Plus One \n11. Stock buy and sell \n12. Stock buy and sell 2 \n13. Remove duplicates \n14. Alternate Positive Negative \n15. Leader's array \n16. Missing Repeating Array \n17. Missing ranges \n18. Sum of subarrays");
