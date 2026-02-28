@@ -1,64 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Happy Birthday 👑✨</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Happy Birthday 👑✨</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="fade-in">
 
 <audio id="bgMusic" loop>
   <source src="assets/music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- SECTION 1 -->
-<section id="intro">
+<div class="overlay-transition"></div>
+
+<section class="center">
   <h1>Happy Birthday to the main character of our lives.</h1>
 
-  <div class="cake-container">
-    <img src="assets/cake.png" class="cake">
-    <div class="cake-glow"></div>
+  <div class="cake-wrapper">
+    <img src="assets/cake.png" class="cake-3d">
+    <div class="glow"></div>
   </div>
 
   <button id="wishBtn">Make a Wish ✨</button>
 </section>
-
-<!-- SECTION 2 -->
-<section id="gallery">
-  <h2>Every queen has her eras.</h2>
-
-  <div class="carousel">
-    <img src="assets/photo1.jpg" class="active">
-    <img src="assets/photo2.jpg">
-    <img src="assets/photo3.jpg">
-  </div>
-
-  <button id="toLetters">From the Ones who Love you.</button>
-</section>
-
-<!-- SECTION 3 -->
-<section id="letters">
-  <h2>May this year treat you like the amazing human being that you are.</h2>
-
-  <div class="cards">
-    <div class="card" data-letter="tau">A letter from Tau</div>
-    <div class="card" data-letter="aai">A letter from Aai</div>
-    <div class="card" data-letter="baba">A letter from Baba</div>
-  </div>
-
-  <div class="final-message">
-    Fifteen and already iconic.
-  </div>
-</section>
-
-<!-- Modal -->
-<div id="letterModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p id="letterText"></p>
-  </div>
-</div>
 
 <script src="script.js"></script>
 </body>
