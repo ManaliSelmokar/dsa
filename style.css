@@ -47,21 +47,6 @@ button:hover {
   transform: translateY(-6px) scale(1.08);
 }
 
-.cake-wrapper {
-  perspective: 1000px;
-}
-
-.cake {
-  width: 420px;
-  border-radius: 20px;
-  transition: transform 0.6s ease;
-  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
-}
-
-.cake:hover {
-  transform: rotateY(15deg) rotateX(10deg) scale(1.05);
-}
-
 .gallery-grid {
   display: flex;
   gap: 40px;
