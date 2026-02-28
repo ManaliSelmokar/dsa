@@ -1,79 +1,48 @@
-const wishBtn = document.getElementById("wishBtn");
-const bgMusic = document.getElementById("bgMusic");
-const toLetters = document.getElementById("toLetters");
+const audio = document.getElementById("bgMusic");
 
-/* Blow Out + Music + Scroll */
-wishBtn.addEventListener("click", () => {
-  const glow = document.querySelector(".cake-glow");
-  glow.style.transition = "opacity 1s ease";
-  glow.style.opacity = "0";
-
-  setTimeout(() => {
-    bgMusic.play();
-    createConfetti();
-  }, 800);
-
-  setTimeout(() => {
-    document.getElementById("gallery").scrollIntoView({ behavior: "smooth" });
-  }, 1500);
-});
-
-/* Scroll to Letters */
-toLetters.addEventListener("click", () => {
-  document.getElementById("letters").scrollIntoView({ behavior: "smooth" });
-});
-
-/* Carousel */
-let slides = document.querySelectorAll(".carousel img");
-let index = 0;
-
-setInterval(() => {
-  slides[index].classList.remove("active");
-  index = (index + 1) % slides.length;
-  slides[index].classList.add("active");
-}, 4000);
-
-/* Confetti */
-function createConfetti() {
-  for (let i = 0; i < 60; i++) {
-    const confetti = document.createElement("div");
-    confetti.classList.add("confetti");
-    confetti.style.left = Math.random() * 100 + "vw";
-    confetti.style.animationDuration = 3 + Math.random() * 3 + "s";
-    document.body.appendChild(confetti);
-
-    setTimeout(() => {
-      confetti.remove();
-    }, 6000);
-  }
+/* Restore Music */
+if(localStorage.getItem("musicTime")){
+  audio.currentTime = localStorage.getItem("musicTime");
+  audio.play();
 }
 
-/* Letter Modal */
-const cards = document.querySelectorAll(".card");
-const modal = document.getElementById("letterModal");
-const letterText = document.getElementById("letterText");
-const closeBtn = document.querySelector(".close");
+/* Save music time */
+setInterval(()=>{
+  localStorage.setItem("musicTime", audio.currentTime);
+},1000);
 
-const letters = {
-  tau: "You are strength wrapped in grace. Watching you grow into who you are has been the greatest privilege.",
-  aai: "You are my heart outside my body. May this year give you everything you deserve and more.",
-  baba: "Keep shining, keep dreaming, keep being unstoppable. The world is yours."
-};
-
-cards.forEach(card => {
-  card.addEventListener("click", () => {
-    const key = card.getAttribute("data-letter");
-    letterText.textContent = letters[key];
-    modal.style.display = "flex";
+/* Cake 3D tilt */
+const cake = document.querySelector(".cake-3d");
+if(cake){
+  document.addEventListener("mousemove",(e)=>{
+    const x = (window.innerWidth/2 - e.pageX)/25;
+    const y = (window.innerHeight/2 - e.pageY)/25;
+    cake.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
   });
-});
+}
 
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-});
+/* Wish Button Transition */
+const wishBtn = document.getElementById("wishBtn");
+if(wishBtn){
+  wishBtn.addEventListener("click",()=>{
+    document.querySelector(".glow").style.opacity="0";
+    audio.play();
+    setTimeout(()=>{
+      document.querySelector(".overlay-transition").style.opacity="1";
+      setTimeout(()=>{
+        window.location.href="gallery.html";
+      },1200);
+    },800);
+  });
+}
 
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
-});
+/* Gallery to Letters */
+const toLetters = document.getElementById("toLetters");
+if(toLetters){
+  toLetters.addEventListener("click",()=>{
+    document.querySelector(".overlay-transition").style.opacity="1";
+    setTimeout(()=>{
+      window.location.href="letters.html";
+    },1200);
+  });
+}
