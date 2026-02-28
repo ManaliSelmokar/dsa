@@ -5,27 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Main Character Era</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<audio autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
+<audio id="bg-music" autoplay loop>
+  <source src="assets/music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="sparkle-container"></div>
 
 <section class="hero">
-  <h1 class="fade-in">Happy Birthday to the main character of our lives.</h1>
-  <p class="subtitle fade-in-delay">Every queen has her eras.</p>
+  <h1 class="fade-up">Happy Birthday to the main character of our lives.</h1>
+  <p class="subtitle fade-up-delay">Every queen has her eras.</p>
 
-  <div class="cake-container fade-in-delay-2">
-    <img src="cake.png" class="cake">
+  <div class="cake-wrapper fade-up-delay-2">
+    <img src="assets/cake.png" class="cake">
   </div>
 
-  <button onclick="nextPage()">Make a Wish ✨</button>
+  <button onclick="navigate('gallery.html')">Make a Wish ✨</button>
 </section>
 
 <script src="script.js"></script>
