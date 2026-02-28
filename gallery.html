@@ -1,29 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Her Eras 👑</title>
+<title>Her Eras</title>
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
-<body class="fade-in darker">
+<body>
 
-<audio id="bgMusic" loop>
-  <source src="assets/music.mp3" type="audio/mpeg">
-</audio>
+<section class="gallery-page">
+  <h1 class="fade-up">Fifteen and already iconic.</h1>
 
-<div class="overlay-transition"></div>
-
-<section class="center">
-  <h2>Every queen has her eras.</h2>
-
-  <div class="carousel-3d">
-    <img src="assets/photo1.jpg">
-    <img src="assets/photo2.jpg">
-    <img src="assets/photo3.jpg">
+  <div class="gallery-grid">
+    <div class="photo-card"><img src="assets/photo1.jpg"></div>
+    <div class="photo-card"><img src="assets/photo2.jpg"></div>
+    <div class="photo-card"><img src="assets/photo3.jpg"></div>
   </div>
 
-  <button id="toLetters">From the Ones who Love you.</button>
+  <button onclick="navigate('letters.html')">From the Ones who Love You →</button>
 </section>
 
 <script src="script.js"></script>
