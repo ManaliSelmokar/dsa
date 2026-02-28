@@ -21,19 +21,3 @@ if (container) {
     container.appendChild(sparkle);
   }
 }
-
-function blowCandles() {
-  const flames = document.querySelectorAll('.flame');
-
-  flames.forEach(flame => {
-    const smoke = document.createElement('div');
-    smoke.classList.add('smoke');
-    flame.parentElement.appendChild(smoke);
-
-    flame.style.display = "none";
-  });
-
-  setTimeout(() => {
-    alert("Wish made ✨");
-  }, 1500);
-}
