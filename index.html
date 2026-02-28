@@ -1,28 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Birthday 👑✨</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-</head>
-<body class="fade-in">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Main Character Era</title>
 
-<audio id="bgMusic" loop>
-  <source src="assets/music.mp3" type="audio/mpeg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<div class="overlay-transition"></div>
+<div class="sparkle-container"></div>
 
-<section class="center">
-  <h1>Happy Birthday to the main character of our lives.</h1>
+<section class="hero">
+  <h1 class="fade-in">Happy Birthday to the main character of our lives.</h1>
+  <p class="subtitle fade-in-delay">Every queen has her eras.</p>
 
-  <div class="cake-wrapper">
-    <img src="assets/cake.png" class="cake-3d">
-    <div class="glow"></div>
+  <div class="cake-container fade-in-delay-2">
+    <img src="cake.png" class="cake">
   </div>
 
-  <button id="wishBtn">Make a Wish ✨</button>
+  <button onclick="nextPage()">Make a Wish ✨</button>
 </section>
 
 <script src="script.js"></script>
