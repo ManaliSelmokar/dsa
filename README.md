@@ -1,47 +1,18 @@
-# 404 – Not Found
+# 👑✨ Happy Birthday Chiu
 
-This project appears to be a simple static website.
+A cinematic, pastel-luxury birthday website created to celebrate the main character of our lives.
 
-It contains:
-- A basic landing page
-- A password gate
-- Some styling
-- A few media assets
-
-Nothing unusual.
-
-Unless you know the code.
+This project is a three-section interactive experience featuring:
+- 🎂 A wish-making cake moment
+- 📸 A memory carousel
+- 💌 Letters from loved ones
+- 🎶 Background music with seamless transitions
+- ✨ Confetti and glow effects
 
 ---
 
-## ⚠️ Access Required
+## 🌸 Live Experience
 
-If you’ve been given the link,  
-you probably already know why.
+Hosted using GitHub Pages.
 
-If you don’t —  
-this page truly does not exist.
 
----
-
-## 🖤 Built With
-
-- HTML
-- CSS
-- JavaScript
-- Suspense
-- A little bit of chaos
-- A lot of love
-
----
-
-## 🚀 Deployment
-
-Hosted via GitHub Pages.
-
----
-
-If you’re reading this…
-You were always meant to find it.
-
-You were always meant to find it.
