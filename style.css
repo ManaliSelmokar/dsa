@@ -1,128 +1,118 @@
-* { margin:0; padding:0; box-sizing:border-box; }
-
 body {
-  font-family:'Poppins',sans-serif;
-  background:linear-gradient(to bottom,#f6e9e7,#fffaf6);
-  overflow:hidden;
-  color:#333;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(
+    circle at center,
+    #7B4DB2 0%,
+    #6E3FA0 40%,
+    #5C2E8A 100%
+  );
+  color: #F8F2FF;
+  overflow-x: hidden;
 }
 
-body.darker {
-  background:linear-gradient(to bottom,#f1dede,#fceeee);
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  perspective: 1000px;
+  position: relative;
 }
 
-.center {
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  perspective:1000px;
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  max-width: 900px;
+  text-shadow: 0 0 25px rgba(255, 240, 255, 0.4);
 }
 
-h1,h2 {
-  font-family:'Playfair Display',serif;
-  margin-bottom:40px;
+.subtitle {
+  font-size: 20px;
+  color: #E7D8FF;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.cake-container {
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.cake-container:hover {
+  transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+}
+
+.cake {
+  width: 420px;
+  border-radius: 20px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
 }
 
 button {
-  padding:14px 32px;
-  border:1px solid #c7a46c;
-  background:transparent;
-  color:#c7a46c;
-  cursor:pointer;
-  transition:0.3s;
+  margin-top: 50px;
+  background: linear-gradient(135deg, #F3CFC6, #EFC3FF);
+  color: #5C2E8A;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  transition: all 0.4s ease;
 }
 
 button:hover {
-  background:#c7a46c;
-  color:white;
+  transform: translateY(-6px) scale(1.07);
 }
 
-/* 3D Cake */
-.cake-wrapper { position:relative; }
-.cake-3d {
-  width:340px;
-  transition:transform 0.2s;
-}
-.glow {
-  position:absolute;
-  top:10%;
-  left:50%;
-  transform:translateX(-50%);
-  width:150px;
-  height:150px;
-  background:radial-gradient(circle,rgba(255,200,150,0.7),transparent 70%);
-  animation:flicker 2s infinite alternate;
-}
-@keyframes flicker {
-  from{opacity:0.7;}
-  to{opacity:1;}
-}
-
-/* 3D Carousel */
-.carousel-3d {
-  display:flex;
-  gap:40px;
-}
-.carousel-3d img {
-  width:250px;
-  border-radius:20px;
-  transition:transform 0.5s;
-  box-shadow:0 20px 40px rgba(0,0,0,0.15);
-}
-.carousel-3d img:hover {
-  transform:rotateY(15deg) scale(1.05);
-}
-
-/* Glass Cards */
-.glass-cards {
-  display:flex;
-  gap:40px;
-}
-.glass-card {
-  width:250px;
-  padding:40px;
-  border-radius:20px;
-  backdrop-filter:blur(15px);
-  background:rgba(255,255,255,0.3);
-  box-shadow:0 20px 40px rgba(0,0,0,0.1);
-  transition:transform 0.4s;
-}
-.glass-card:hover {
-  transform:rotateY(15deg) scale(1.05);
-}
-
-/* Ending Fade */
-.ending {
-  margin-top:60px;
-  font-family:'Playfair Display',serif;
-  font-size:1.5rem;
-  opacity:0;
-  animation:fadeUp 3s ease forwards;
-  animation-delay:3s;
-}
-
-@keyframes fadeUp {
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-/* Page Fade */
 .fade-in {
-  animation:fadeIn 1.5s ease;
-}
-@keyframes fadeIn {
-  from{opacity:0;}
-  to{opacity:1;}
+  opacity: 0;
+  animation: fade 1.5s forwards;
 }
 
-.overlay-transition {
-  position:fixed;
-  inset:0;
-  background:white;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity 1.2s;
+.fade-in-delay {
+  opacity: 0;
+  animation: fade 2s forwards 0.8s;
+}
+
+.fade-in-delay-2 {
+  opacity: 0;
+  animation: fade 2s forwards 1.6s;
+}
+
+@keyframes fade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sparkle-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+}
+
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #F8F2FF;
+  border-radius: 50%;
+  animation: float 6s infinite ease-in-out;
+  opacity: 0.7;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(-30px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0.7; }
 }
