@@ -6,7 +6,7 @@ import java.util.Stack;
 public class stringsEasy {
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the choice: \n1. Cummulative length \n2. Replace characters \n3. Username \n4. String builder cummulative length \n5. Sb replace char \n6. Sb username \n7. Lowercase \n8. Reverse \n9. Palindrome \n10. Reverse words \n11. Rotations \n12. Shift left \n13. Shift right");
+        System.out.println("Enter the choice: \n1. Cummulative length \n2. Replace characters \n3. Username \n4. String builder cummulative length \n5. Sb replace char \n6. Sb username \n7. Lowercase \n8. Reverse \n9. Palindrome \n10. Reverse words \n11. Rotations \n12. Shift left \n13. Shift right \n14. First non-repeating character \n15. Roman Integers");
         int n = sc.nextInt();
         switch (n) {
             case 1:
@@ -59,6 +59,16 @@ public class stringsEasy {
 
             case 13:
                 shiftRightNtimes();
+                break;
+
+            case 14:
+                char c = firstNonRepeating();
+                System.out.println("First Non Repeating: "+c);
+                break;
+
+            case 15:
+                int intRoman = romanInteger();
+                System.out.println("Roman to Integer: "+intRoman);
                 break;
         
             default:
@@ -305,5 +315,60 @@ public class stringsEasy {
         }
 
         System.out.println("Result: "+res);
+    }
+
+    static char firstNonRepeating(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a string");
+        String s = sc.next();
+
+        for(int i=0;i<s.length();++i){
+            boolean b = false;
+            for(int j=0;j<s.length();++j){
+                if(i!=j && s.charAt(i)==s.charAt(j)){
+                    b = true;
+                    break;
+                }
+            }
+            if(!b) return s.charAt(i);
+        }
+        
+        return '$';
+    }
+
+    static int romanInteger(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a string");
+        String s = sc.next();
+        int res = 0; 
+
+        for (int i = 0; i < s.length(); i++) {
+            int s1 = value(s.charAt(i));
+            if (i + 1 < s.length()) {
+                int s2 = value(s.charAt(i + 1));
+                if (s1 >= s2) {
+                    res += s1;
+                }
+                else {
+                    res += (s2 - s1);
+                    i++;
+                }
+            }
+            else {
+                res += s1;
+            }
+        }
+        return res;
+    }
+
+    static int value(char val){
+        if(val == 'I') return 1;
+        if(val == 'V') return 5;
+        if(val == 'X') return 10;
+        if(val == 'L') return 50;
+        if(val == 'C') return 100;
+        if(val == 'D') return 500;
+        if(val == 'M') return 1000;
+        return -1;
     }
 }
