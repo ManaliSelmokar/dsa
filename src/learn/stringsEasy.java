@@ -1,5 +1,6 @@
 package learn;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -69,6 +70,21 @@ public class stringsEasy {
             case 15:
                 int intRoman = romanInteger();
                 System.out.println("Roman to Integer: "+intRoman);
+                break;
+
+            case 16:
+                System.out.println("String");
+                String bracket = sc.next();
+                brackets(bracket);
+                break;
+
+            case 17:
+                System.out.println("String1");
+                String s1 = sc.next();
+                System.out.println("String2");
+                String s2 = sc.next();
+                boolean b = anagram(s1,s2);
+                System.out.println(b);
                 break;
         
             default:
@@ -370,5 +386,35 @@ public class stringsEasy {
         if(val == 'D') return 500;
         if(val == 'M') return 1000;
         return -1;
+    }
+
+    static int brackets(String s){
+        for(int i=0;i<s.length();i++){
+            int openCnt = 0, closeCnt = 0;
+
+            for (int j = 0; j < i; j++) {
+                if (s.charAt(j) == '(')
+                    openCnt++;
+            }
+            for (int j = i; j < s.length(); j++) {
+                if (s.charAt(j) == ')') 
+                    closeCnt++;
+            }
+            if (openCnt == closeCnt) return i;
+        }
+        return -1;
+    }
+
+    static boolean anagram(String s1, String s2){
+            if(s1.length()!=s2.length()) return false;
+
+            char[] s1Arr = s1.toCharArray();
+            char[] s2Arr = s2.toCharArray();
+
+            Arrays.sort(s1Arr);
+            Arrays.sort(s2Arr);
+
+            return Arrays.equals(s1Arr, s2Arr);
+
     }
 }
